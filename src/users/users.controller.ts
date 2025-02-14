@@ -19,6 +19,7 @@ import {
 } from '@nestjs/swagger';
 import { Prisma } from '@prisma/client';
 
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}

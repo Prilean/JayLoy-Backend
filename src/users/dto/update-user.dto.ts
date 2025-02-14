@@ -1,5 +1,5 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { GenderEnum, RoleEnum } from 'src/config/contants';
+import { GENDER, ROLE } from '@prisma/client';
 
 export class UpdateUserDto {
   @ApiPropertyOptional({ example: 'dynann' })
@@ -20,9 +20,9 @@ export class UpdateUserDto {
   @ApiPropertyOptional({ example: 'https://example.com/profile.jpg' })
   profileURL?: string;
 
-  @ApiPropertyOptional({ enum: GenderEnum, example: 'MALE' })
-  gender?: GenderEnum;
+  @ApiPropertyOptional({ enum: GENDER, example: 'MALE' })
+  gender?: GENDER;
 
-  @ApiPropertyOptional({ enum: RoleEnum, example: 'ADMIN' })
-  role?: RoleEnum;
+  @ApiPropertyOptional({ enum: ROLE, example: 'ADMIN' })
+  role?: ROLE;
 }

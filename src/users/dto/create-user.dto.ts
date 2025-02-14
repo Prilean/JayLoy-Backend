@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { GenderEnum, RoleEnum } from 'src/config/contants';
+import { GENDER, ROLE } from '@prisma/client';
 
 export class CreateUserDto {
   @ApiProperty({ example: 'dynann' })
@@ -19,8 +19,8 @@ export class CreateUserDto {
       'https://external-preview.redd.it/what-is-your-review-about-the-gleam-programming-language-v0-9ZK3KN0GhFM2K1uE0CdhJhqebMdXVfbD_ED-OsliG60.jpg?auto=webp&s=671464f8a6fbd694636808bf83c765a6aaed1529',
   })
   profileURL!: string;
-  @ApiProperty({ enum: GenderEnum, example: 'MALE' })
-  gender: GenderEnum;
+  @ApiProperty({ enum: GENDER, example: 'MALE' })
+  gender: GENDER;
 }
 
 export class GetUserDto {
@@ -51,8 +51,8 @@ export class GetUserDto {
   })
   profileURL?: string;
 
-  @ApiProperty({ enum: GenderEnum, example: 'MALE' })
-  gender: GenderEnum;
+  @ApiProperty({ enum: GENDER, example: 'MALE' })
+  gender: GENDER;
 
   @ApiProperty({ example: '2005-01-01T00:00:00.000Z' })
   createdAt: Date;
@@ -60,6 +60,6 @@ export class GetUserDto {
   @ApiProperty({ example: null })
   deletedAt?: Date;
 
-  @ApiProperty({ enum: RoleEnum, example: 'USER' })
-  role: RoleEnum;
+  @ApiProperty({ enum: ROLE, example: 'USER' })
+  role: ROLE;
 }
