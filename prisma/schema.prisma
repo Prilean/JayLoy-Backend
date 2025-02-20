@@ -43,8 +43,8 @@ model User {
   password String @db.VarChar(255)
   dateOfBirth DateTime?
   profileURL String? @db.VarChar(255)
-  gender GENDER @default(UNSPECIFY) 
-  createdAt DateTime @default(now())
+  gender GENDER? @default(UNSPECIFY) 
+  createdAt DateTime? @default(now())
   deletedAt DateTime?
   role ROLE @default(USER)
   Categories Category[]

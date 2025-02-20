@@ -38,7 +38,7 @@ export class AuthService {
       });
       return { accessToken, refreshToken };
     } catch (error) {
-      console.log("found you")
+      console.log("error", error);
       throw new HttpException(`error: ${error}`, HttpStatus.BAD_REQUEST);
     }
   }

@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors(); // Enable CORS
   //api swagger configuration
   const config = new DocumentBuilder()
     .setTitle('Jay Luy API')
@@ -24,7 +25,7 @@ async function bootstrap() {
       persistAuthorization: true,
     },
   });
-  await app.listen(process.env.PORT ?? 3000);
-  console.log(`app run on http://localhost:3000`);
+  await app.listen(process.env.PORT ?? 3001);
+  console.log(`app run on http://localhost:3001`);
 }
 bootstrap();
