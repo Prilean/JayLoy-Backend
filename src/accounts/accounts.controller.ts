@@ -15,6 +15,11 @@ import { query } from 'express';
 export class AccountsController {
   constructor(private readonly accountsService: AccountsService) {}
 
+  @Delete('\deleteall')
+  async deleteAll(@Request() req){
+    return await this.accountsService.deleteAll(req.user.sub);
+  }
+
   @Get('/balance')
   @ApiOperation({ summary: 'get balance'})
   @ApiResponse({ status: 200, type: getBalanceDTO})
@@ -87,6 +92,6 @@ export class AccountsController {
   async remove(@Param('id') id: string) {
     return await this.accountsService.remove(+id);
   }
-  
+
 
 }

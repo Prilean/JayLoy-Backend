@@ -246,4 +246,14 @@ export class AccountsService {
      })
   }
 
+  async deleteAll(userID: number){
+    const accountId = (await this.findByUserId(userID)).id
+    await this.prisma.transaction.deleteMany({
+      where: {
+        accountID: accountId
+      }
+    })
+    return "Successfully Deleted";
+  }
+
 }
